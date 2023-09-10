@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './pages/main/main.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CharactersComponent } from './pages/characters/characters.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CharactersComponent } from './pages/characters/characters.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
