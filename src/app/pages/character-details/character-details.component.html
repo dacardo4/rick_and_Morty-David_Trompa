@@ -1,1 +1,28 @@
-<p>character-details works!</p>
+<div class="card mb-5" *ngIf="dataLoaded">
+  <div class="card-body text-center">
+    <h5 class="card-title">{{ characterData.name }}</h5>
+    <p class="card-text"></p>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-sm-12 col-md-6 text-center">
+      <div class="text-center">
+        <img [src]="characterData.image" class="card-img-top" [alt]="characterData.name">
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 text-center">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><span class="cardTitle">status:</span> {{ characterData.status }}</li>
+        <li class="list-group-item"><span class="cardTitle">gender:</span> {{ characterData.gender }}</li>
+        <li class="list-group-item"><span class="cardTitle">species:</span> {{ characterData.species }}</li>
+        <li class="list-group-item"><span class="cardTitle">location:</span> {{ characterData.location.name }}</li>
+        <li class="list-group-item"><span class="cardTitle">origin:</span> {{ characterData.origin.name }}</li>
+        <li class="list-group-item"><span class="cardTitle" *ngIf="characterData.type">type:</span> {{ characterData.type }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<ngx-loading
+  [show]="!dataLoaded"
+  [config]="{ backdropBorderRadius: '10px', fullScreenBackdrop: true }"
+></ngx-loading>
