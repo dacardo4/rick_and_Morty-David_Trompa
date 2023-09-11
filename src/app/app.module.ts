@@ -10,6 +10,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxLoadingModule } from 'ngx-loading';
 import { CharacterDetailsComponent } from './pages/character-details/character-details.component';
 import { FormsModule } from '@angular/forms';
+import { LocationComponent } from './pages/location/location.component';
+import { LocationDetailsComponent } from './pages/location-details/location-details.component';
+import { EpisodesComponent } from './pages/episodes/episodes.component';
+import { EpisodeDetailsComponent } from './pages/episode-details/episode-details.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import { FormsModule } from '@angular/forms';
     MainComponent,
     NavbarComponent,
     CharactersComponent,
-    CharacterDetailsComponent
+    CharacterDetailsComponent,
+    LocationComponent,
+    LocationDetailsComponent,
+    EpisodesComponent,
+    EpisodeDetailsComponent
   ],
   imports: [
     BrowserModule,
