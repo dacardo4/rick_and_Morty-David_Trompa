@@ -28,4 +28,10 @@ export class CharacterDetailsComponent {
       } else this._router.navigate(['/']);
     });
   }
+
+  viewDataFromLocation(urlReceived: string): void {
+    let id = urlReceived.split('location/')[1];
+    let url = `/locationDetails/${id}`;
+    window.open(url, "_blank");
+  }
 }

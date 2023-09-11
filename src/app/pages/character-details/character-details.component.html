@@ -14,8 +14,8 @@
         <li class="list-group-item"><span class="cardTitle">Status:</span> {{ characterData.status }}</li>
         <li class="list-group-item"><span class="cardTitle">Gender:</span> {{ characterData.gender }}</li>
         <li class="list-group-item"><span class="cardTitle">Species:</span> {{ characterData.species }}</li>
-        <li class="list-group-item"><span class="cardTitle">Location:</span> {{ characterData.location.name }}</li>
-        <li class="list-group-item"><span class="cardTitle">Origin:</span> {{ characterData.origin.name }}</li>
+        <li class="list-group-item changeCursor" (click)="viewDataFromLocation(characterData.location.url)"><span class="cardTitle cardTitleClick">Location:</span> {{ characterData.location.name }}</li>
+        <li class="list-group-item changeCursor" (click)="viewDataFromLocation(characterData.origin.url)"><span class="cardTitle cardTitleClick">Origin:</span> {{ characterData.origin.name }}</li>
         <li class="list-group-item"><span class="cardTitle" *ngIf="characterData.type">type:</span> {{ characterData.type }}</li>
       </ul>
     </div>

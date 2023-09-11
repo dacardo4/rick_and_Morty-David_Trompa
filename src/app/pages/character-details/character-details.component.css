@@ -1,9 +1,15 @@
 .cardTitle {
     font-weight: 700;
 }
+.cardTitleClick {
+    color: #0dcaf0;
+}
 .card-img-top {
     max-width: 500px;
 }
 .card-title {
     font-size: 25px;
+}
+.changeCursor {
+    cursor: pointer;
 }

@@ -5,5 +5,6 @@ export class Location {
     public dimension: string,
     public type: string,
     public residents: string[],
+    public url: string,
   ) { }
 }
