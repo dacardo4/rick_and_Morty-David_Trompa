@@ -21,6 +21,17 @@
     </div>
   </div>
 </div>
+<div class="card mb-5" *ngIf="dataLoaded">
+  <div class="card-body text-center">
+    <h5 class="card-title">Episodes ({{ characterData.episode.length }})</h5>
+    <p class="card-text">List of episodes in which this character appeared.</p>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-sm-12 col-md-6 col-lg-3 text-center" *ngFor="let episode of characterData.episode">
+      <app-episode-card [episode]="episode"></app-episode-card>
+    </div>
+  </div>
+</div>
 
 <ngx-loading
   [show]="!dataLoaded"
