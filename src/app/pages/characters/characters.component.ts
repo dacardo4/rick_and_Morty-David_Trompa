@@ -14,6 +14,8 @@ export class CharactersComponent {
   public charactersList: Character[] = [];
   public navigatorOptions: number[] = [];
   public showLoader = false;
+  public orderBy = 'Name Asc';
+  public nameToFilter = '';
 
   constructor(
     private _characterService: CharacterService,
@@ -40,6 +42,11 @@ export class CharactersComponent {
     if (page <= 3) this.navigatorOptions = [1,2,3,4,5];
     if (page >= (this.pageMaxLimit-2)) this.navigatorOptions = [this.pageMaxLimit-4, this.pageMaxLimit-3, this.pageMaxLimit-2, this.pageMaxLimit-1, this.pageMaxLimit];
     if (page > 3 && page < (this.pageMaxLimit-2)) this.navigatorOptions = [page-2, page-1, page, page+1, page+2];
+    if (this.pageMaxLimit == 1 ) this.navigatorOptions = [1];
+    if (this.pageMaxLimit == 2 ) this.navigatorOptions = [1,2];
+    if (this.pageMaxLimit == 3 ) this.navigatorOptions = [1,2,3];
+    if (this.pageMaxLimit == 4 ) this.navigatorOptions = [1,2,3,4];
+    if (this.pageMaxLimit == 5 ) this.navigatorOptions = [1,2,3,4,5];
     this.showLoader = false;
   }
 
@@ -58,5 +65,63 @@ export class CharactersComponent {
     window.open(url, "_blank");
   }
 
-  
+  getDataFilteredByName(): void {
+    this.showLoader = true;
+    this._characterService.getAllCharactersWithFilterName(this.nameToFilter).subscribe({
+      next: response => {
+        console.log(response);
+        this.charactersList = response.results;
+        this.pageMaxLimit = response.info.pages;
+        this.calculateNavigator(this.page);
+      },
+      error: err => {
+        console.log('err getDataFilteredByName', err);
+      }
+    });
+  }
+
+  orderListBy(option: string): void {
+    this.showLoader = true;
+    this.orderBy = option;
+    switch (option) {
+      case 'Name Asc':
+        this.charactersList.sort((a, b) => {
+          const nameA = a.name.toLowerCase();
+          const nameB = b.name.toLowerCase();
+          if (nameA < nameB) return -1;
+          if (nameA > nameB) return 1;
+          return 0;
+        });
+        break;
+      case 'Name Desc':
+        this.charactersList.sort((a, b) => {
+          const nameA = a.name.toLowerCase();
+          const nameB = b.name.toLowerCase();
+          if (nameA > nameB) return -1;
+          if (nameA < nameB) return 1;
+          return 0;
+        });
+        break;
+      case 'Status Asc':
+        this.charactersList.sort((a, b) => {
+          const statusA = a.status.toLowerCase();
+          const statusB = b.status.toLowerCase();
+          if (statusA < statusB) return -1;
+          if (statusA > statusB) return 1;
+          return 0;
+        });
+        break;
+      case 'Status Desc':
+        this.charactersList.sort((a, b) => {
+          const statusA = a.status.toLowerCase();
+          const statusB = b.status.toLowerCase();
+          if (statusA > statusB) return -1;
+          if (statusA < statusB) return 1;
+          return 0;
+        });
+        break;
+    }
+    this.showLoader = false;
+  }
+
 }

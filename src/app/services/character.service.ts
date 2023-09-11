@@ -18,6 +18,11 @@ export class CharacterService {
     return this._httpService.httpGet(url).pipe(take(1));
   }
 
+  getAllCharactersWithFilterName(name: string): Observable<any> {
+    let url: string = `${this.characterApi}?name=${name}`;
+    return this._httpService.httpGet(url).pipe(take(1));
+  }
+
   getCharacterById(id: number): Observable<any> {
     let url: string = `${this.characterApi}/${id}`;
     return this._httpService.httpGet(url).pipe(take(1));

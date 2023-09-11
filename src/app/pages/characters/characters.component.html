@@ -1,5 +1,23 @@
 <div class="d-flex justify-content-between">
-  <div></div>
+  <div>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Find user by name" aria-label="Recipient's username" aria-describedby="button-addon2" [(ngModel)]="nameToFilter" (keydown.enter)="getDataFilteredByName()">
+      <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="getDataFilteredByName()">Search</button>
+    </div>
+  </div>
+  <div>
+    <div class="dropdown">
+      <a class="btn btn-primary dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+        Order By: {{ orderBy }}
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <li><a class="dropdown-item dropdownOption" (click)="orderListBy('Name Asc')">Name Asc</a></li>
+        <li><a class="dropdown-item dropdownOption" (click)="orderListBy('Name Desc')">Name Desc</a></li>
+        <li><a class="dropdown-item dropdownOption" (click)="orderListBy('Status Asc')">Status Asc</a></li>
+        <li><a class="dropdown-item dropdownOption" (click)="orderListBy('Status Desc')">Status Desc</a></li>
+      </ul>
+    </div>
+  </div>
   <div>
     <nav aria-label="Page navigation example">
       <ul class="pagination">
@@ -91,5 +109,5 @@
 
 <ngx-loading
   [show]="showLoader"
-  [config]="{ backdropBorderRadius: '10px' }"
+  [config]="{ backdropBorderRadius: '10px', fullScreenBackdrop: true }"
 ></ngx-loading>

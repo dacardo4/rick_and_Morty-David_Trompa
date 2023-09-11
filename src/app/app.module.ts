@@ -9,6 +9,7 @@ import { CharactersComponent } from './pages/characters/characters.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxLoadingModule } from 'ngx-loading';
 import { CharacterDetailsComponent } from './pages/character-details/character-details.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CharacterDetailsComponent } from './pages/character-details/character-d
     AppRoutingModule,
     HttpClientModule,
     NgxLoadingModule.forRoot({}),
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
