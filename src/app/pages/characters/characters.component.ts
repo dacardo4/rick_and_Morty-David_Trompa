@@ -27,7 +27,6 @@ export class CharactersComponent {
     this.showLoader = true;
     this._characterService.getAllCharacters(this.page).subscribe({
       next: response => {
-        console.log(response);
         this.charactersList = response.results;
         this.pageMaxLimit = response.info.pages;
         this.calculateNavigator(this.page);
@@ -69,7 +68,6 @@ export class CharactersComponent {
     this.showLoader = true;
     this._characterService.getAllCharactersWithFilterName(this.nameToFilter).subscribe({
       next: response => {
-        console.log(response);
         this.charactersList = response.results;
         this.pageMaxLimit = response.info.pages;
         this.calculateNavigator(this.page);

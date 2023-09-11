@@ -27,7 +27,6 @@ export class LocationComponent {
     this.showLoader = true;
     this._locationService.getAllLocations(this.page).subscribe({
       next: response => {
-        console.log(response);
         this.locationsList = response.results;
         this.pageMaxLimit = response.info.pages;
         this.calculateNavigator(this.page);
@@ -69,7 +68,6 @@ export class LocationComponent {
     this.showLoader = true;
     this._locationService.getAllLocationsWithFilterName(this.nameToFilter).subscribe({
       next: response => {
-        console.log(response);
         this.locationsList = response.results;
         this.pageMaxLimit = response.info.pages;
         this.calculateNavigator(this.page);

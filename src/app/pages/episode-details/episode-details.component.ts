@@ -19,9 +19,7 @@ export class EpisodeDetailsComponent {
   ) {
     this._activatedRoute.params.subscribe(params => {
       if (params['id']) {
-        console.log('params[id]',params['id']);
         this._episodeService.getEpisodeById(params['id']).subscribe(result => {
-          console.log('result',result);
           this.episodeData = result;
           this.dataLoaded = true;
         });

@@ -27,7 +27,6 @@ export class EpisodesComponent {
     this.showLoader = true;
     this._episodesService.getAllEpisodes(this.page).subscribe({
       next: response => {
-        console.log(response);
         this.episodesList = response.results;
         this.pageMaxLimit = response.info.pages;
         this.calculateNavigator(this.page);
@@ -70,7 +69,6 @@ export class EpisodesComponent {
     this.showLoader = true;
     this._episodesService.getAllEpisodesWithFilterName(this.nameToFilter).subscribe({
       next: response => {
-        console.log(response);
         this.episodesList = response.results;
         this.pageMaxLimit = response.info.pages;
         this.calculateNavigator(this.page);

@@ -19,9 +19,7 @@ export class LocationDetailsComponent {
   ) {
     this._activatedRoute.params.subscribe(params => {
       if (params['id']) {
-        console.log('params[id]',params['id']);
         this._locationService.getLocationById(params['id']).subscribe(result => {
-          console.log('result',result);
           this.locationData = result;
           this.dataLoaded = true;
         });

@@ -19,9 +19,7 @@ export class CharacterDetailsComponent {
   ) {
     this._activatedRoute.params.subscribe(params => {
       if (params['id']) {
-        console.log('params[id]',params['id']);
         this._characterService.getCharacterById(params['id']).subscribe(result => {
-          console.log('result',result);
           this.characterData = result;
           this.dataLoaded = true;
         });
