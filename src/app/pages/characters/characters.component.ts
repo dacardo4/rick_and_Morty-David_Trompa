@@ -13,6 +13,7 @@ export class CharactersComponent {
   public pageMaxLimit: number = 0;
   public charactersList: Character[] = [];
   public navigatorOptions: number[] = [];
+  public showLoader = true;
 
   constructor(
     private _characterService: CharacterService,
