@@ -54,7 +54,7 @@ export class CharactersComponent {
   }
 
   showCharacterDetails(id: string): void {
-    let url = `/characters/${id}`;
+    let url = `/characterDetails/${id}`;
     window.open(url, "_blank");
   }
 

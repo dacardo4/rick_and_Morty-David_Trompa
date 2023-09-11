@@ -8,13 +8,15 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { CharactersComponent } from './pages/characters/characters.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxLoadingModule } from 'ngx-loading';
+import { CharacterDetailsComponent } from './pages/character-details/character-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     NavbarComponent,
-    CharactersComponent
+    CharactersComponent,
+    CharacterDetailsComponent
   ],
   imports: [
     BrowserModule,
