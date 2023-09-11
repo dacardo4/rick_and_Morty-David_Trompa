@@ -4,5 +4,6 @@ export class Episode {
     public air_date: string,
     public episode: string,
     public name: string,
+    public characters: string[],
   ) { }
 }
