@@ -4,5 +4,6 @@ export class Location {
     public name: string,
     public dimension: string,
     public type: string,
+    public residents: string[],
   ) { }
 }
