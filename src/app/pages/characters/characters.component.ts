@@ -13,7 +13,7 @@ export class CharactersComponent {
   public pageMaxLimit: number = 0;
   public charactersList: Character[] = [];
   public navigatorOptions: number[] = [];
-  public showLoader = true;
+  public showLoader = false;
 
   constructor(
     private _characterService: CharacterService,
@@ -22,6 +22,7 @@ export class CharactersComponent {
   }
 
   getCharactersData(): void {
+    this.showLoader = true;
     this._characterService.getAllCharacters(this.page).subscribe({
       next: response => {
         console.log(response);
@@ -39,6 +40,7 @@ export class CharactersComponent {
     if (page <= 3) this.navigatorOptions = [1,2,3,4,5];
     if (page >= (this.pageMaxLimit-2)) this.navigatorOptions = [this.pageMaxLimit-4, this.pageMaxLimit-3, this.pageMaxLimit-2, this.pageMaxLimit-1, this.pageMaxLimit];
     if (page > 3 && page < (this.pageMaxLimit-2)) this.navigatorOptions = [page-2, page-1, page, page+1, page+2];
+    this.showLoader = false;
   }
 
   updateIndexCharacterTable(pageNumber: number): void {
