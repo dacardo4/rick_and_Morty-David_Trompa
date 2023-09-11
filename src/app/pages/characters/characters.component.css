@@ -1,3 +1,16 @@
 .custom-thumbnail {
     max-width: 100px;
 }
+.rowToSelect {
+    cursor: pointer
+}
+.page-link {
+    cursor: pointer
+}
+.page-link-selected {
+    background-color: #0d6efd;
+    color: white;
+}
+tr:hover {
+    background-color: #0d6efd !important;
+}

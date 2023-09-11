@@ -5,7 +5,7 @@ import { CharactersComponent } from './pages/characters/characters.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
-  { path: 'personajes', component: CharactersComponent },
+  { path: 'characters', component: CharactersComponent },
   { path: '**', component: MainComponent }
 ];
 

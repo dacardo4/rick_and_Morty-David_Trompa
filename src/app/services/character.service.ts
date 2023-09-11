@@ -12,8 +12,8 @@ export class CharacterService {
     private _httpService: HttpService,
   ) { }
 
-  getAllCharacters(page: string): Observable<any> {
-    if (+page > 42) page = '42';
+  getAllCharacters(page: number): Observable<any> {
+    if (+page > 42) page = 42;
     let url: string = `${this.characterApi}?page=${page}`;
     return this._httpService.httpGet(url).pipe(take(1));
   }
