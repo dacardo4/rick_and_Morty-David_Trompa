@@ -1,5 +1,3 @@
-import { Location } from "./location";
-
 export class Episode {
   constructor(
     public id: string,
