@@ -9,14 +9,14 @@ import { EpisodesComponent } from './pages/episodes/episodes.component';
 import { EpisodeDetailsComponent } from './pages/episode-details/episode-details.component';
 
 const routes: Routes = [
-  { path: '', component: MainComponent },
+  { path: '', component: CharactersComponent },
   { path: 'characters', component: CharactersComponent },
   { path: 'characterDetails/:id', component: CharacterDetailsComponent },
   { path: 'locations', component: LocationComponent },
   { path: 'locationDetails/:id', component: LocationDetailsComponent },
   { path: 'episodes', component: EpisodesComponent },
   { path: 'episodeDetails/:id', component: EpisodeDetailsComponent },
-  { path: '**', component: MainComponent }
+  { path: '**', component: CharactersComponent }
 ];
 
 @NgModule({
