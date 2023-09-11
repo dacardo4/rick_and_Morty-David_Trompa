@@ -1,1 +1,111 @@
-<p>episodes works!</p>
+<div class="d-flex justify-content-between">
+  <div>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Find user by name" aria-label="Recipient's username" aria-describedby="button-addon2" [(ngModel)]="nameToFilter" (keydown.enter)="getDataFilteredByName()">
+      <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="getDataFilteredByName()">Search</button>
+    </div>
+  </div>
+  <div>
+    <div class="dropdown">
+      <a class="btn btn-primary dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+        Order By: {{ orderBy }}
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <li><a class="dropdown-item dropdownOption" (click)="orderListBy('Name Asc')">Name Asc</a></li>
+        <li><a class="dropdown-item dropdownOption" (click)="orderListBy('Name Desc')">Name Desc</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" (click)="updateIndexEpisodeTable(1)" aria-label="Previous">
+            <span aria-hidden="true">First</span>
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" (click)="updateIndexEpisodeTable(page-1)" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <ng-container *ngFor="let pageNumber of navigatorOptions">
+          <li class="page-item">
+            <a class="page-link" [class.page-link-selected]="pageNumber == page" (click)="updateIndexEpisodeTable(pageNumber)">{{ pageNumber }}</a>
+          </li>
+        </ng-container>
+        <li class="page-item">
+          <a class="page-link" (click)="updateIndexEpisodeTable(page+1)" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" (click)="updateIndexEpisodeTable(pageMaxLimit)" aria-label="Next">
+            <span aria-hidden="true">Last</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<table class="table table-hover"><CAPTION></CAPTION>
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Episode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let episode of episodesList" (click)="showEpisodeDetails(episode.id)" class="rowToSelect">
+      <th scope="row" class="align-middle">{{ episode.id }}</th>
+      <td class="align-middle">{{ episode.name }}</td>
+      <td class="align-middle">{{ episode.episode }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="episodesList.length == 0" class="text-center">
+  <h1>Data not found!</h1>
+</div>
+
+<div class="d-flex justify-content-between mt-5">
+  <div></div>
+  <div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" (click)="updateIndexEpisodeTable(1)" aria-label="Previous">
+            <span aria-hidden="true">First</span>
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" (click)="updateIndexEpisodeTable(page-1)" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <ng-container *ngFor="let pageNumber of navigatorOptions">
+          <li class="page-item">
+            <a class="page-link" [class.page-link-selected]="pageNumber == page" (click)="updateIndexEpisodeTable(pageNumber)">{{ pageNumber }}</a>
+          </li>
+        </ng-container>
+        <li class="page-item">
+          <a class="page-link" (click)="updateIndexEpisodeTable(page+1)" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" (click)="updateIndexEpisodeTable(pageMaxLimit)" aria-label="Next">
+            <span aria-hidden="true">Last</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<ngx-loading
+  [show]="showLoader"
+  [config]="{ backdropBorderRadius: '10px', fullScreenBackdrop: true }"
+></ngx-loading>

@@ -75,7 +75,10 @@ export class CharactersComponent {
         this.calculateNavigator(this.page);
       },
       error: err => {
+        this.charactersList = [];
+        this.pageMaxLimit = 1;
         console.log('err getDataFilteredByName', err);
+        this.showLoader = false;
       }
     });
   }

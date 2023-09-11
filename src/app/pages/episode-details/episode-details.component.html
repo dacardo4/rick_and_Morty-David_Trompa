@@ -1,1 +1,19 @@
-<p>episode-details works!</p>
+<div class="card mb-5" *ngIf="dataLoaded">
+  <div class="card-body text-center">
+    <h5 class="card-title">{{ episodeData.name }}</h5>
+    <p class="card-text"></p>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-12 text-center">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><span class="cardTitle">Air date:</span> {{ episodeData.air_date }}</li>
+        <li class="list-group-item"><span class="cardTitle">Episode:</span> {{ episodeData.episode }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<ngx-loading
+  [show]="!dataLoaded"
+  [config]="{ backdropBorderRadius: '10px', fullScreenBackdrop: true }"
+></ngx-loading>
